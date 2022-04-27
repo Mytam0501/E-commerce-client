@@ -22,7 +22,7 @@
                 </div>
                 <div class="list-product d-flex flex-column space-around">
                     <div class="item d-flex flex-row space-between"  v-for="(cart_item, index) in cart" :key="index">
-                        <img :src="'http://localhost:5000/' + cart_item.product.image"/>
+                        <img :src="'https://ttstore-cosmetic.herokuapp.com/' + cart_item.product.image"/>
                         <p class="title">{{cart_item.product.title}}</p>
                         <p class="price">${{cart_item.product.price}}</p>
                         <p class="qty">

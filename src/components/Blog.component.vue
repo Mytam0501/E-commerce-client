@@ -6,7 +6,7 @@
         </div>
         <div class="flex-column space-around" v-for="blog in blogs" :key="blog._id">
             <div class="item-blog d-flex flex-row space-around">
-                <img :src="'http://localhost:5000/' + blog.image" alt="">
+                <img :src="'https://ttstore-cosmetic.herokuapp.com/' + blog.image" alt="">
                 <div class="item d-flex flex-column space-around">
                     <p class="title">{{blog.title}}</p>
                     <p class="description">For county now sister engage had season better had waited. Occasional mrs interested far expression.</p>

@@ -14,7 +14,7 @@
                 <div class="item d-flex flex-column space-around" v-for="product in products" :key="product._id" v-show="product.brand">
                     <div  class="img-hover">
                         <a :href="'/shop/' + product.slug">
-                            <img :src="'http://localhost:5000/' + product.image"/>
+                            <img :src="'https://ttstore-cosmetic.herokuapp.com/' + product.image"/>
                         </a>
                         <div class="detail-hover">
                             <div>

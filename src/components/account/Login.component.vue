@@ -49,7 +49,7 @@ export default {
                 password: this.password
             }
 
-            axios.post('http://localhost:5000/api/login', user)
+            axios.post('https://ttstore-cosmetic.herokuapp.com/api/login', user)
             .then(res=>{
                 if(res.status === 200){
                     localStorage.setItem('token', res.data.token);

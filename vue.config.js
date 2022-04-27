@@ -3,6 +3,6 @@ module.exports = {
     'vuetify'
   ],
   devServer: {
-    proxy:  "http://localhost:5000"
+    proxy:  "https://ttstore-cosmetic.herokuapp.com/"
   }
 }

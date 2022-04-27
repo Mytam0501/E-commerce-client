@@ -21,7 +21,7 @@
                 <div class="list-product d-flex flex-column space-around">
                     
                     <div class="item d-flex flex-row space-between" v-for="(wishlist_item, index) in wishlist" :key="wishlist_item.product.id">
-                        <img :src="'http://localhost:5000/' + wishlist_item.product.image"/>
+                        <img :src="'https://ttstore-cosmetic.herokuapp.com/' + wishlist_item.product.image"/>
                         <p class="title">{{wishlist_item.product.title}}</p>
                         <p class="price">${{wishlist_item.product.price}}</p>
                         <p class="stock">IN STOCK</p>

@@ -49,7 +49,7 @@ export default {
                 username: this.username,
                 password: this.password
             };
-            axios.post('http://localhost:5000/api/register', data)
+            axios.post('https://ttstore-cosmetic.herokuapp.com/api/register', data)
             .then(res=>{
                 console.log(res);
                 this.error = '';

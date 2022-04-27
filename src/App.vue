@@ -82,7 +82,7 @@
                                     <div v-if="searchItem.length != 0" >
                                             <a :href="'/shop/' + item.slug" v-for="item in searchItem" :key="item._id" 
                                                 class="d-flex flex-row space-around" style="background-color: rgba(0, 0, 0, 0.1); overflow: auto; padding: 14px 0">
-                                                <img :src="'http://localhost:5000/' + item.image" style="object-fit: cover;height: 40px; width: 70px;"/>
+                                                <img :src="'https://ttstore-cosmetic.herokuapp.com/' + item.image" style="object-fit: cover;height: 40px; width: 70px;"/>
                                                 <div style="width: 270px; font-size: 16px; font-family: Courier;">
                                                     <span>{{item.title}}</span>
                                                 </div>
@@ -116,7 +116,7 @@
                             <li>
                                 <a href="/shopping-cart"><i class="fas fa-shopping-cart"></i></a>
 
-                                <div v-if ="lengthCart() != 0" style="position: absolute; top: 17px; right: 75px; font-size: 12px; background-color: rgb(230, 171, 181); color: black; border-radius: 50%; padding: 2px 5px;">{{cart.length}}</div>
+                                <div v-if ="cart.length != 0" style="position: absolute; top: 17px; right: 75px; font-size: 12px; background-color: rgb(230, 171, 181); color: black; border-radius: 50%; padding: 2px 5px;">{{cart.length}}</div>
                             </li>
                         </ul>
                     </div>
@@ -185,7 +185,8 @@ export default {
             search: '',
             searchItem: [],
             product: [],
-            check_search: ''
+            check_search: '',
+            client_URL:'',
         }
     },
     async created() {
@@ -196,7 +197,7 @@ export default {
     },
     mounted() {
         
-        axios.get('http://localhost:5000/api/login', {headers: {token: localStorage.getItem('token')}})
+        axios.get('https://ttstore-cosmetic.herokuapp.com/api/login', {headers: {token: localStorage.getItem('token')}})
             .then(res=>{
                 this.name = res.data.user.name;
                 this.email = res.data.user.email;
@@ -207,16 +208,12 @@ export default {
             })
     },
     computed: {
-        ...mapState(["cart", "wishlist"])   
+        ...mapState(['cart', 'wishlist'])
     },
     methods: {
         Logout(){
             localStorage.clear();
         },
-        lengthCart(){
-            return JSON.parse(window.localStorage.cart).length;
-        },
-        
         removeVietnameseTones(str) {
             str = str.replace(/à|á|ạ|ả|ã|â|ầ|ấ|ậ|ẩ|ẫ|ă|ằ|ắ|ặ|ẳ|ẵ/g,"a"); 
             str = str.replace(/è|é|ẹ|ẻ|ẽ|ê|ề|ế|ệ|ể|ễ/g,"e"); 
@@ -247,7 +244,6 @@ export default {
         },
         getSearchItems() {
             const arr = [];
-            
             let a = this.removeVietnameseTones(this.search).toLowerCase();
             if(a != "" && a != null){
                 for(const i in this.product){

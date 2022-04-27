@@ -2,7 +2,7 @@
     <div class="container">
         <div class="detail d-flex flex-row space-around">
             <div class="img flex-column space-around">
-                <img :src="'http://localhost:5000/' +  product.image" alt="">
+                <img :src="'https://ttstore-cosmetic.herokuapp.com/' +  product.image" alt="">
                 <p class="name">DESCRIPTION</p>
                 <p class="description">{{product.description}}</p>
             </div>

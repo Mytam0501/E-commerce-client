@@ -9,7 +9,7 @@
         </div>
         <div class="container-center d-flex flex-row space-between">
             <div class="main">
-                <img :src="'http://localhost:5000/' + blog.image" alt="">
+                <img :src="'https://ttstore-cosmetic.herokuapp.com/' + blog.image" alt="">
                 <div class="infomation d-flex flex-column space-between">
                     <div class="time d-flex flex-row space-between">
                         <p>By {{blog.author}}</p>

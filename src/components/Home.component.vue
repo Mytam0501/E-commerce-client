@@ -81,7 +81,7 @@
           >
             <div class="img-hover">
               <a :href="'/shop/' + newestproduct.slug">
-                <img :src="'http://localhost:5000/' + newestproduct.image" />
+                <img :src="'https://ttstore-cosmetic.herokuapp.com/' + newestproduct.image" />
               </a>
               <div class="detail-hover">
                 <div id="icon">
@@ -203,7 +203,6 @@ export default {
     };
   },
   async created() {
-    this.link = process.env.localURL;
     const res = await API.getAllProducts();
     const product = [];
     var count = 0;
@@ -232,10 +231,10 @@ export default {
     this.newestProducts = product;
   },
   mounted() {
-        this.$store.commit("SET_CART");
+    this.$store.commit("SET_CART");
   },
   computed: {
-    ...mapState(["cart"])        
+    ...mapState(['cart'])        
   },
   methods: {
     

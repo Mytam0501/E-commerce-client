@@ -10,7 +10,7 @@
         <div class="main grid-layout">
             <div v-for="member in team" :key="member._id">
                 <div class="item d-flex flex-column space-around">
-                    <img :src="'http://localhost:5000/' + member.image"/>
+                    <img :src="'https://ttstore-cosmetic.herokuapp.com/' + member.image"/>
                     <div class="infomation-detail d-flex flex-column space-around">
                         <p class="name">{{member.name}}</p>
                         <span>&#8900;</span>
